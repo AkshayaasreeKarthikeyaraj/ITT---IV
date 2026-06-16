@@ -1,4 +1,4 @@
-s = input()
-ls = list(s)
-ls.reverse()
-print(" ".join(ls))
+a = int(input())
+b = int(input())
+b, a = a, b
+print(a, b)
