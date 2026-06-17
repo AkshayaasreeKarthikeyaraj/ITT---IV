@@ -1,37 +1,27 @@
-import sys
-
 def solve():
-    input_data = sys.stdin.read().split()
-    if not input_data:
+    data = input().split()
+    if not data:
         return
-    
-    num_test_cases = int(input_data[0])
-    current_index = 1
-    results = []
-    
-    for _ in range(num_test_cases):
-        n = int(input_data[current_index])
-        k = int(input_data[current_index + 1])
-        s = input_data[current_index + 2]
-        current_index += 3
-        
-        remainder_counts = [0] * k
-        for i, char in enumerate(s):
-            if char == '1':
-                remainder_counts[i % k] += 1
-        
-        is_possible = True
-        for count in remainder_counts:
+    t = int(data[0])
+    idx = 1
+    out = []
+    for _ in range(t):
+        n = int(data[idx])
+        k = int(data[idx+1])
+        s = data[idx+2]
+        idx += 3
+        ones_count = [0] * k
+        for i in range(n):
+            if s[i] == '1':
+                ones_count[i % k] += 1
+        possible = True
+        for count in ones_count:
             if count % 2 != 0:
-                is_possible = False
+                possible = False
                 break
-        
-        if is_possible:
-            results.append("YES")
+        if possible:
+            out.append("YES")
         else:
-            results.append("NO")
-            
-    print('\n'.join(results))
-
-if __name__ == '__main__':
-    solve()
+            out.append("NO")
+    print('\n'.join(out))
+solve()
