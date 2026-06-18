@@ -27,7 +27,9 @@ for i in rating:
 max_r = len(val)
 min_r = len(val)
 
-
+if len(val) == 0:
+  min_r = 1
+  
 if count > 0:
   max_r += count
   
